@@ -1,3 +1,4 @@
+import 'package:compass_app/neu_circle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -33,13 +34,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Builder(builder: (context) {
-        if (_hasPermission) {
-          return _buildCompass();
-        } else {
-         return _buildPermission();
-        }
-      }),
+      backgroundColor: Colors.brown.shade300,
+      body: NeuCircle(
+        child: Builder(builder: (context) {
+          if (_hasPermission) {
+            return _buildCompass();
+          } else {
+           return _buildPermission();
+          }
+        }),
+      ),
     );
   }
 
